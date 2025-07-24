@@ -1,0 +1,208 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cửa Hàng Tài Liệu Học Tập</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <h1 class="logo"><i class="fas fa-book"></i> Cửa Hàng Tài Liệu</h1>
+            <div class="cart-icon" onclick="showTab('cart')">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count" id="cartCount">0</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <nav class="nav-tabs">
+        <div class="container">
+            <button class="tab-btn active" onclick="showTab('home')">
+                <i class="fas fa-home"></i> Trang Chủ
+            </button>
+            <button class="tab-btn" onclick="showTab('products')">
+                <i class="fas fa-box"></i> Sản Phẩm
+            </button>
+            <button class="tab-btn" onclick="showTab('cart')">
+                <i class="fas fa-shopping-cart"></i> Giỏ Hàng
+            </button>
+            <button class="tab-btn" onclick="showTab('contact')">
+                <i class="fas fa-phone"></i> Liên Hệ
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Trang Chủ -->
+            <div id="home" class="tab-content active">
+                <div class="hero">
+                    <div class="hero-layout">
+                        <div class="cheems-section">
+                            <div class="cheems-mascot">
+                                <img src="images/cheems.png" alt="Cheems" class="cheems-normal">
+                                <div class="speech-bubble">
+                                    <p>"Woww... tài liệu học tập quality!"</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content-section">
+                            <h2>Chào Mừng Đến Với Cửa Hàng Tài Liệu Học Tập</h2>
+                            <p>Cung cấp tài liệu chất lượng cao - coded by human developer</p>
+                            <div class="quote-box">
+                                <span style="font-size: 1.1rem;">"Học giỏi không khó, khó là không có tài liệu chất"</span>
+                                <br><small style="color: #666;">- Developer pro tips</small>
+                            </div>
+                            <button class="btn-primary" onclick="showTab('products')">
+                                Xem Sản Phẩm <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sản Phẩm -->
+            <div id="products" class="tab-content">
+                <h2>Sản Phẩm Của Chúng Tôi</h2>
+                <div class="product-grid">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="images/ryoma_cheems.png" alt="Cheems Ninja" class="cheems-ninja">
+                            <div class="ninja-quote">"Tài liệu này... very strong!"</div>
+                        </div>
+                        <div class="product-info">
+                            <h3>Tài liệu học tập vào 10</h3>
+                            <p class="product-description">
+                                Bộ tài liệu "thần thánh" giúp bạn vào được trường top! 
+                                <br><small style="color: #667eea; font-weight: 600;">Đã được verify bởi các cao thủ</small>
+                                <br><small style="color: #999;">POV: Bạn đang cần điểm cao để flex</small>
+                            </p>
+                            <div class="product-price">
+                                30,000 VNĐ 
+                                <small style="color: #999; text-decoration: line-through; margin-left: 10px;">50,000 VNĐ</small>
+                                <span style="background: #ff4757; color: white; padding: 2px 6px; border-radius: 4px; font-size: 0.8rem; margin-left: 5px;">HOT</span>
+                            </div>
+                            <button class="btn-primary" onclick="addToCart()">
+                                <i class="fas fa-cart-plus"></i> Thêm Vào Giỏ Ngay!
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Giỏ Hàng -->
+            <div id="cart" class="tab-content">
+                <h2>Giỏ Hàng Của Bạn</h2>
+                <div id="cartItems" class="cart-items">
+                    <div class="empty-cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <p>Giỏ hàng của bạn đang trống</p>
+                    </div>
+                </div>
+                <div class="cart-total" id="cartTotal" style="display: none;">
+                    <div class="total-line">
+                        <span>Tổng cộng: <span id="totalAmount">0 VNĐ</span></span>
+                    </div>
+                    <button class="btn-primary btn-checkout" onclick="showCheckout()">
+                        <i class="fas fa-credit-card"></i> Thanh Toán
+                    </button>
+                </div>
+            </div>
+
+            <!-- Liên Hệ -->
+            <div id="contact" class="tab-content">
+                <div class="contact-hero">
+                    <div class="business-cheems">
+                        <img src="images/cheems-business.png" alt="Business Cheems" class="cheems-business">
+                        <div class="business-quote">
+                            <p>"Liên hệ với chúng tôi... very professional!"</p>
+                        </div>
+                    </div>
+                    <h2>Thông Tin Liên Hệ</h2>
+                    <p>Đội ngũ chuyên nghiệp sẵn sàng hỗ trợ bạn 24/7</p>
+                </div>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Địa chỉ</h4>
+                            <p>123 Đường Láng, Đống Đa, Hà Nội, Việt Nam</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>nhatthien152011@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Số điện thoại</h4>
+                            <p>0904299087</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal Thanh Toán -->
+    <div id="checkoutModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeCheckout()">&times;</span>
+            <h2>Thông Tin Thanh Toán</h2>
+            <form id="checkoutForm">
+                <div class="form-group">
+                    <label for="fullName">Họ và Tên *</label>
+                    <input type="text" id="fullName" name="fullName" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Số Điện Thoại *</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="orderName">Tên Đơn Hàng</label>
+                    <input type="text" id="orderName" name="orderName" value="Tài liệu học tập vào 10" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="price">Giá</label>
+                    <input type="text" id="price" name="price" value="30,000 VNĐ" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email (không bắt buộc)</label>
+                    <input type="email" id="email" name="email">
+                </div>
+                <div class="form-group">
+                    <label for="note">Ghi Chú</label>
+                    <textarea id="note" name="note" rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn-primary btn-confirm">
+                    <i class="fas fa-check"></i> Xác Nhận Mua Hàng
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p><strong>Bản quyền © 2025 Công ty TNHH Cầy Company</strong></p>
+                <p>Địa chỉ: 123 Đường Láng, Đống Đa, Hà Nội, Việt Nam</p>
+                <p>Email: nhatthien152011@gmail.com | Số điện thoại: 0904299087</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

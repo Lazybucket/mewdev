@@ -1,0 +1,817 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+.header {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 20px;
+}
+
+.logo {
+    color: #667eea;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.cart-icon {
+    position: relative;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: #667eea;
+    transition: transform 0.3s ease;
+}
+
+.cart-icon:hover {
+    transform: scale(1.1);
+}
+
+.cart-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: #ff4757;
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Navigation Tabs */
+.nav-tabs {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.nav-tabs .container {
+    display: flex;
+    gap: 0;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 1rem;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 1rem;
+    color: #666;
+    transition: all 0.3s ease;
+    border-bottom: 3px solid transparent;
+}
+
+.tab-btn:hover,
+.tab-btn.active {
+    color: #667eea;
+    border-bottom-color: #667eea;
+    background: rgba(102, 126, 234, 0.1);
+}
+
+.tab-btn i {
+    margin-right: 0.5rem;
+}
+
+/* Main Content */
+.main-content {
+    min-height: calc(100vh - 200px);
+    padding: 2rem 0;
+}
+
+.tab-content {
+    display: none;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Hero Section */
+.hero {
+    padding: 3rem 0;
+    position: relative;
+}
+
+.hero-layout {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+    flex-wrap: wrap;
+}
+
+.cheems-section {
+    flex: 0 0 auto;
+    min-width: 200px;
+}
+
+.content-section {
+    flex: 1;
+    text-align: center;
+    min-width: 300px;
+}
+
+.quote-box {
+    margin: 1rem 0;
+    padding: 1rem;
+    background: rgba(102, 126, 234, 0.1);
+    border-radius: 10px;
+    font-style: italic;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Cheems Mascot */
+.cheems-mascot {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+.cheems-normal {
+    width: 150px;
+    height: auto;
+    animation: bounce 2s ease-in-out infinite;
+    display: block;
+}
+
+.speech-bubble {
+    position: absolute;
+    bottom: -40px; /* Đặt dưới hình Cheems */
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    padding: 0.5rem 1rem;
+    border-radius: 15px;
+    border: 2px solid #667eea;
+    font-size: 0.9rem;
+    color: #333;
+    white-space: nowrap;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    z-index: 10;
+}
+
+.speech-bubble::before {
+    content: '';
+    position: absolute;
+    top: -8px; /* Đặt mũi tên ở trên để chỉ lên hình Cheems */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid #667eea; /* Đổi hướng mũi tên */
+}
+
+.speech-bubble::after {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 6px solid white; /* Đổi hướng mũi tên */
+}
+
+/* Cheems Ninja Product */
+.cheems-ninja {
+    width: 100px;
+    height: auto;
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.cheems-ninja:hover {
+    transform: rotate(10deg) scale(1.1);
+}
+
+.ninja-quote {
+    font-size: 0.8rem;
+    color: #667eea;
+    font-style: italic;
+    margin-top: 0.5rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.product-card:hover .ninja-quote {
+    opacity: 1;
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Buttons */
+.btn-primary {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+}
+
+.btn-checkout {
+    width: 100%;
+    font-size: 1.1rem;
+    padding: 1.2rem;
+}
+
+.btn-confirm {
+    width: 100%;
+    margin-top: 1rem;
+}
+
+/* Product Grid */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.product-card {
+    background: white;
+    border-radius: 15px;
+    padding: 1.5rem;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.product-image {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.product-image i {
+    font-size: 4rem;
+    color: #667eea;
+}
+
+.product-info h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.product-description {
+    color: #666;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.product-price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #667eea;
+    margin-bottom: 1rem;
+}
+
+/* Cart - Professional styling với một chút TikTok vibe */
+.cart-items {
+    margin-bottom: 2rem;
+}
+
+.empty-cart {
+    text-align: center;
+    padding: 3rem;
+    color: #999;
+    position: relative;
+}
+
+.empty-cart::before {
+    content: '💸';
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 2rem;
+    animation: float 3s ease-in-out infinite;
+}
+
+.empty-cart i {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+    animation: pulse 2s infinite;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem;
+    border: 1px solid #eee;
+    border-radius: 15px;
+    margin-bottom: 1rem;
+    background: white;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.cart-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.1), transparent);
+    transition: left 0.5s ease;
+}
+
+.cart-item:hover::before {
+    left: 100%;
+}
+
+.cart-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    border-color: #667eea;
+}
+
+.item-info {
+    flex: 1;
+}
+
+.item-info h4 {
+    margin-bottom: 0.5rem;
+    color: #333;
+    font-size: 1.1rem;
+}
+
+.item-info p {
+    color: #667eea;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+}
+
+.item-info small {
+    display: block;
+    font-style: italic;
+}
+
+.cart-total {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.total-line {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    text-align: right;
+    color: #333;
+}
+
+/* Contact */
+.contact-hero {
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.business-cheems {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 2rem;
+}
+
+.cheems-business {
+    width: 200px;
+    height: auto;
+    animation: float 3s ease-in-out infinite;
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.1));
+}
+
+.business-quote {
+    position: absolute;
+    bottom: -50px; /* Đặt dưới hình Cheems */
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    white-space: nowrap;
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+    z-index: 10;
+}
+
+.business-quote::before {
+    content: '';
+    position: absolute;
+    top: -10px; /* Đặt mũi tên ở trên để chỉ lên hình Cheems */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #667eea; /* Đổi hướng mũi tên */
+}
+
+/* Contact */
+.contact-hero {
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.contact-hero h2 {
+    font-size: 2.2rem;
+    color: #333;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.contact-hero p {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 2rem;
+}
+
+.contact-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.contact-item i {
+    font-size: 1.5rem;
+    color: #667eea;
+    margin-top: 0.2rem;
+}
+
+.contact-item h4 {
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.contact-item p {
+    color: #666;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background: white;
+    margin: 5% auto;
+    padding: 2rem;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 500px;
+    max-height: 80vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.close {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #999;
+    transition: color 0.3s ease;
+}
+
+.close:hover {
+    color: #333;
+}
+
+/* Form */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.form-group input[readonly] {
+    background-color: #f5f5f5;
+    color: #666;
+}
+
+/* Footer */
+.footer {
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: auto;
+}
+
+.footer-content p {
+    margin-bottom: 0.5rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero h2 {
+        font-size: 2rem;
+    }
+    
+    .hero p {
+        font-size: 1rem;
+    }
+    
+    .hero-layout {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .cheems-section {
+        order: -1;
+    }
+    
+    .speech-bubble {
+        position: relative;
+        bottom: auto;
+        top: 10px;
+        left: auto;
+        transform: none;
+        margin: 1rem auto;
+        display: inline-block;
+    }
+    
+    .speech-bubble::before,
+    .speech-bubble::after {
+        display: none;
+    }
+    
+    .nav-tabs .container {
+        flex-wrap: wrap;
+    }
+    
+    .tab-btn {
+        flex: 1 1 50%;
+        font-size: 0.9rem;
+    }
+    
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-info {
+        grid-template-columns: 1fr;
+    }
+    
+    .modal-content {
+        margin: 10% auto;
+        width: 95%;
+    }
+    
+    .cheems-business {
+        width: 150px;
+    }
+    
+    .business-quote {
+        position: relative;
+        bottom: auto;
+        top: 10px;
+        left: auto;
+        transform: none;
+        margin: 1rem auto;
+        display: inline-block;
+    }
+    
+    .business-quote::before {
+        display: none;
+    }
+    
+    .contact-hero h2 {
+        font-size: 1.8rem;
+    }
+}
+
+/* Animations - Professional với một chút TikTok magic */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 0.8; }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes glow {
+    0%, 100% { box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3); }
+    50% { box-shadow: 0 5px 25px rgba(102, 126, 234, 0.6); }
+}
+
+.tab-content.active {
+    animation: fadeIn 0.5s ease;
+}
+
+/* Professional hover effects */
+.product-card:hover .product-image i {
+    animation: float 2s ease-in-out infinite;
+    color: #764ba2;
+}
+
+.btn-primary:active {
+    transform: translateY(-2px) scale(0.98);
+}
+
+.cart-icon:hover {
+    animation: shake 0.5s ease-in-out;
+}
+
+/* Notification animations */
+.notification {
+    animation: slideInRight 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* Loading state cho buttons */
+.btn-primary.loading {
+    position: relative;
+    color: transparent;
+}
+
+.btn-primary.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin-left: -10px;
+    margin-top: -10px;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Easter egg - dev signature */
+body::after {
+    content: 'Coded by Human Developer (Cheems approved)';
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 0.5rem;
+    font-size: 0.8rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+body:hover::after {
+    opacity: 1;
+}
